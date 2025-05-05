@@ -26,6 +26,10 @@ public class AuthorWhiteListServiceImpl implements AuthorWhiteListService {
     @Autowired
     private UserService userService;
 
+    /**
+     * 判断作者是否在文章发布的白名单中；
+     * 用于控制作者发文章之后是否需要进行审核。
+     */
     @Override
     public boolean authorInArticleWhiteList(Long authorId) {
         return RedisClient.sIsMember(ARTICLE_WHITE_LIST, authorId);
@@ -33,8 +37,6 @@ public class AuthorWhiteListServiceImpl implements AuthorWhiteListService {
 
     /**
      * 获取所有的白名单用户
-     *
-     * @return
      */
     @Override
     public List<BaseUserInfoDTO> queryAllArticleWhiteListAuthors() {
@@ -46,11 +48,17 @@ public class AuthorWhiteListServiceImpl implements AuthorWhiteListService {
         return userInfos;
     }
 
+    /**
+     * 将用户添加到白名单中
+     */
     @Override
     public void addAuthor2ArticleWhitList(Long userId) {
         RedisClient.sPut(ARTICLE_WHITE_LIST, userId);
     }
 
+    /**
+     * 从白名单中移除用户
+     */
     @Override
     public void removeAuthorFromArticleWhiteList(Long userId) {
         RedisClient.sDel(ARTICLE_WHITE_LIST, userId);

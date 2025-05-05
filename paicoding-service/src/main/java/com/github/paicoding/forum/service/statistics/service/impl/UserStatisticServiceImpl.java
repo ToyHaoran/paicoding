@@ -22,9 +22,7 @@ public class UserStatisticServiceImpl implements UserStatisticService {
 
     /**
      * 添加在线人数
-     *
      * @param add 正数，表示添加在线人数；负数，表示减少在线人数
-     * @return
      */
     @Override
     public int incrOnlineUserCnt(int add) {
@@ -33,8 +31,6 @@ public class UserStatisticServiceImpl implements UserStatisticService {
 
     /**
      * 查询在线用户人数
-     *
-     * @return
      */
     @Override
     public int getOnlineUserCnt() {

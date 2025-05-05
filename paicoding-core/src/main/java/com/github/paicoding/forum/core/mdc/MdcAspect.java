@@ -21,7 +21,7 @@ import org.springframework.stereotype.Component;
 import java.lang.reflect.Method;
 
 /**
- * @author YiHui
+ * MdcAspect切面的目的是处理添加了@MdcDot注解的方法或类。
  * @date 2023/5/26
  */
 @Slf4j
@@ -53,6 +53,9 @@ public class MdcAspect implements ApplicationContextAware {
         }
     }
 
+    /**
+     * 检查方法或类是否存在@MdcDot注解并获取业务编码。
+     */
     private boolean addMdcCode(ProceedingJoinPoint joinPoint) {
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
         Method method = signature.getMethod();
@@ -68,6 +71,9 @@ public class MdcAspect implements ApplicationContextAware {
         return false;
     }
 
+    /**
+     * 解析@MdcDot注解的bizCode元素的值。
+     */
     private String loadBizCode(String key, ProceedingJoinPoint joinPoint) {
         if (StringUtils.isBlank(key)) {
             return "";

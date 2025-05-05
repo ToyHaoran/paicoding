@@ -66,25 +66,22 @@ mybatis-plus:
 
 # knife4j
 knife4j:
-  enable: true
+  enable: true  # 启用Knife4j
   setting:
     language: zh-CN
-  openapi:
+  openapi:  # 元数据信息
     title: 技术派
-    description: 一个基于 Spring Boot、MyBatis-Plus、MySQL、Redis、ElasticSearch、MongoDB、Docker、RabbitMQ 等技术栈实现的社区系统，采用主流的互联网技术架构、全新的UI设计、支持一键源码部署，拥有完整的文章&教程发布/搜索/评论/统计流程等，代码完全开源，没有任何二次封装，是一个非常适合二次开发/实战的现代化社区项目👍 。
+    description: 一个基于Spring Boot、MyBatis-Plus、MySQL、Redis、ElasticSearch、MongoDB、Docker、RabbitMQ 等技术栈实现的社区系统，采用主流的互联网技术架构、全新的UI设计、支持一键源码部署，拥有完整的文章&教程发布/搜索/评论/统计流程等。
     version: 1.0.0
-    concat:
-      - 一灰灰 | 楼仔 | 沉默王二
-      - https://paicoding.com
-      - https://github.com/itwanger/paicoding
+    concat: toy
     license: Apache License 2.0
     license-url: https://github.com/itwanger/paicoding/blob/main/License
-    email: bangzewu@126.com
+    email: 948797775@qq.com
     group:
       admin:
         group-name: 后台接口分组
-        api-rule: package
-        api-rule-resources:
+        api-rule: package  # 分组规则，这里使用包规则。
+        api-rule-resources:  # 指定包名，Knife4j将扫描此包下的所有API接口并将它们添加到此分组。
           - com.github.paicoding.forum.web.admin
       front:
         group-name: 前台接口分组

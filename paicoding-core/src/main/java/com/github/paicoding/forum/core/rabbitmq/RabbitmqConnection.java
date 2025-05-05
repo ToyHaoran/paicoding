@@ -12,6 +12,8 @@ import java.util.concurrent.TimeoutException;
  */
 public class RabbitmqConnection {
 
+
+
     private Connection connection;
 
     public RabbitmqConnection(String host, int port, String userName, String password, String virtualhost) {

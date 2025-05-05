@@ -162,6 +162,9 @@ public class UserActivityRankServiceImpl implements UserActivityRankService {
         return item;
     }
 
+    /**
+     * 排行榜查询
+     */
     @Override
     public List<RankItemDTO> queryRankList(ActivityRankTimeEnum time, int size) {
         String rankKey = time == ActivityRankTimeEnum.DAY ? todayRankKey() : monthRankKey();

@@ -247,6 +247,7 @@ public class RedisClient {
      * @return
      */
     public static <T> Boolean sIsMember(String key, T value) {
+        // template.opsForSet().isMember(key, value);
         return template.execute(new RedisCallback<Boolean>() {
             @Override
             public Boolean doInRedis(RedisConnection connection) throws DataAccessException {
